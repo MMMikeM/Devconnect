@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  demo-pg:
+    container_name: postgres_container
+    image: postgres:15
+    environment:
+      POSTGRES_USER: ${DATABASE_USER}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+      POSTGRES_DB: ${DATABASE}
+      PGDATA: /data/postgres
+    volumes:
+      - demo-pg:/data/postgres
+    ports:
+      - "${DATABASE_PORT}:5432"
+    restart: unless-stopped
+
+volumes:
+  demo-pg:
