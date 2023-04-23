@@ -1,14 +1,14 @@
-import DiscordProvider from "@auth/core/providers/discord";
-import { SolidAuth, SolidAuthConfig } from "@auth/solid-start";
+import GitHub from "@auth/core/providers/github"
+import { SolidAuth, SolidAuthConfig } from "@auth/solid-start"
+import config from "~/config"
+
+import type { Provider } from "@auth/core/providers"
+
+const { clientId, clientSecret } = config.auth.github
 
 export const authOptions: SolidAuthConfig = {
-  providers: [
-    // @ts-expect-error Types are wrong
-    DiscordProvider({
-      clientId: process.env.DISCORD_CLIENT_ID as string,
-      clientSecret: process.env.DISCORD_CLIENT_SECRET as string,
-    }),
-  ],
-};
+  providers: [GitHub({ clientId, clientSecret }) as Provider],
+  debug: false,
+}
 
-export const { GET, POST } = SolidAuth(authOptions);
+export const { GET, POST } = SolidAuth(authOptions)
