@@ -5,6 +5,9 @@ specifiers:
   '@auth/solid-start': ^0.1.1
   '@solidjs/meta': ^0.28.2
   '@solidjs/router': ^0.8.2
+  '@tanstack/solid-query': ^5.0.0-alpha.16
+  '@trpc/client': ^10.12.0
+  '@trpc/server': ^10.12.0
   '@types/node': ^18.11.18
   '@types/pg': ^8.6.6
   '@typescript-eslint/eslint-plugin': ^5.59.0
@@ -20,22 +23,31 @@ specifiers:
   solid-js: ^1.7.2
   solid-start: ^0.2.26
   solid-start-node: ^0.2.19
+  solid-start-trpc: ^0.0.16
+  solid-trpc: 0.1.0-sssr.7
   tailwindcss: ^3.3.1
   tsx: ^3.12.6
   typescript: ^4.9.4
-  undici: ^5.15.1
+  undici: 5.20.0
   vite: ^4.1.4
+  zod: ^3.20.6
 
 dependencies:
   '@auth/core': 0.7.0
   '@auth/solid-start': 0.1.1_ydb72ax7in22vve6b5mtuj6koe
   '@solidjs/meta': 0.28.4_solid-js@1.7.3
   '@solidjs/router': 0.8.2_solid-js@1.7.3
+  '@tanstack/solid-query': 5.0.0-alpha.20_solid-js@1.7.3
+  '@trpc/client': 10.21.1_@trpc+server@10.21.1
+  '@trpc/server': 10.21.1
   kysely: 0.24.2
   pg: 8.10.0
   solid-js: 1.7.3
   solid-start: 0.2.26_tt6ncazacchdnymhnblvm4nye4
-  undici: 5.22.0
+  solid-start-trpc: 0.0.16_lfglwm22glwh2v7g75d7p7i4fe
+  solid-trpc: 0.1.0-sssr.7_y3oio3p3pqfwkzvcnqit24nx4u
+  undici: 5.20.0
+  zod: 3.21.4
 
 devDependencies:
   '@types/node': 18.15.13
@@ -48,7 +60,7 @@ devDependencies:
   eslint-plugin-solid: 0.12.1_tbtvr3a5zwdiktqy4vlmx63mqq
   next-auth: 4.22.1
   postcss: 8.4.23
-  solid-start-node: 0.2.26_ob2r6xlrfoaeefqabrqgjwug6e
+  solid-start-node: 0.2.26_an4i562l7tvpyfkqrpi26qntge
   tailwindcss: 3.3.1_postcss@8.4.23
   tsx: 3.12.6
   typescript: 4.9.5
@@ -1604,6 +1616,31 @@ packages:
       solid-js: ^1.5.3
     dependencies:
       solid-js: 1.7.3
+
+  /@tanstack/query-core/5.0.0-alpha.19:
+    resolution: {integrity: sha512-3W30tOF9TKXdG2Ke2c+DHIVLkTTOK+4Zcynre6qDMjd6/xvK/hLhk0FYyrPAhLoxlqPrMS/4RqHjNGay7g19bQ==}
+    dev: false
+
+  /@tanstack/solid-query/5.0.0-alpha.20_solid-js@1.7.3:
+    resolution: {integrity: sha512-6yhrIxunsXlct1txph0xv0rvOqgAR/FETgiRNt4gCJSmMsL1ISGKvKBgE0q4RyGNQK4aQJ4wj5ko6Z9HEmoZkg==}
+    peerDependencies:
+      solid-js: ^1.6.13
+    dependencies:
+      '@tanstack/query-core': 5.0.0-alpha.19
+      solid-js: 1.7.3
+    dev: false
+
+  /@trpc/client/10.21.1_@trpc+server@10.21.1:
+    resolution: {integrity: sha512-oZgPbghs9y2frTCA9mZPSAlVknV9stCTKYO5nsvRr0aX+oaA0URoXJTKZTSpLZxLfuwWgxBj4iTiCWWWmaVelw==}
+    peerDependencies:
+      '@trpc/server': 10.21.1
+    dependencies:
+      '@trpc/server': 10.21.1
+    dev: false
+
+  /@trpc/server/10.21.1:
+    resolution: {integrity: sha512-4E4upTD2/Aq0Dm9HW4nbKSoIlqbV/ajRqNl1MCFBd9FjTv47qq2ncmAWMbb0AIVh2UV87PJlTjpPNNecRm6g9Q==}
+    dev: false
 
   /@types/babel__core/7.20.0:
     resolution: {integrity: sha512-+n8dL/9GWblDO0iU6eZAwEIJVr5DWigtle+Q6HLOrh/pdbXOhOtqzq8VPPE2zvNJzSKY4vH/z3iT3tn0A3ypiQ==}
@@ -4033,7 +4070,7 @@ packages:
       '@babel/types': 7.21.4
       solid-js: 1.7.3
 
-  /solid-start-node/0.2.26_ob2r6xlrfoaeefqabrqgjwug6e:
+  /solid-start-node/0.2.26_an4i562l7tvpyfkqrpi26qntge:
     resolution: {integrity: sha512-8vciTGoQV+lIlCUSVHJPazlaoKDRfBowDkPeBr/EZdmtbcMOKoJYf/APPQWFspylF+nhzunMf0+zJP90VtMEYg==}
     peerDependencies:
       solid-start: '*'
@@ -4049,10 +4086,24 @@ packages:
       sirv: 2.0.2
       solid-start: 0.2.26_tt6ncazacchdnymhnblvm4nye4
       terser: 5.17.1
-      undici: 5.22.0
+      undici: 5.20.0
       vite: 4.3.1_@types+node@18.15.13
     transitivePeerDependencies:
       - supports-color
+
+  /solid-start-trpc/0.0.16_lfglwm22glwh2v7g75d7p7i4fe:
+    resolution: {integrity: sha512-99/EGIE0SObmCVhZR00bYpkEQpCDP22YgjalQpVgm0BKy2+tJzEC6vdvOII2Ppa0Fm7iPwc4LDZoFX2E3KYmsg==}
+    peerDependencies:
+      '@trpc/client': ^10.0.0
+      '@trpc/server': ^10.0.0
+      solid-js: ^1.5.7
+      solid-start: ^0.2.1
+    dependencies:
+      '@trpc/client': 10.21.1_@trpc+server@10.21.1
+      '@trpc/server': 10.21.1
+      solid-js: 1.7.3
+      solid-start: 0.2.26_tt6ncazacchdnymhnblvm4nye4
+    dev: false
 
   /solid-start/0.2.26_tt6ncazacchdnymhnblvm4nye4:
     resolution: {integrity: sha512-kne2HZlnSMzsirdnvNs1CsDqBl0L0uvKKt1t4de1CH7JIngyqoMcER97jTE0Ejr84KknANaKAdvJAzZcL7Ueng==}
@@ -4117,15 +4168,31 @@ packages:
       set-cookie-parser: 2.6.0
       sirv: 2.0.2
       solid-js: 1.7.3
-      solid-start-node: 0.2.26_ob2r6xlrfoaeefqabrqgjwug6e
+      solid-start-node: 0.2.26_an4i562l7tvpyfkqrpi26qntge
       terser: 5.17.1
-      undici: 5.22.0
+      undici: 5.20.0
       vite: 4.3.1_@types+node@18.15.13
       vite-plugin-inspect: 0.7.24_rollup@3.20.7+vite@4.3.1
       vite-plugin-solid: 2.7.0_solid-js@1.7.3+vite@4.3.1
       wait-on: 6.0.1_debug@4.3.4
     transitivePeerDependencies:
       - supports-color
+
+  /solid-trpc/0.1.0-sssr.7_y3oio3p3pqfwkzvcnqit24nx4u:
+    resolution: {integrity: sha512-N/iqU4iFIVEWKFjOY+5J4e2qbOW9STy/eEID1gEjj6mm0w9xYmQtKu/UsBNf8W6nSCYSBjH/ttU5fGCe/0q2Dw==}
+    peerDependencies:
+      '@tanstack/solid-query': ^5.0.0-alpha.0
+      '@trpc/client': ^10.0.0-rc.2
+      '@trpc/server': ^10.0.0-rc.2
+      solid-js: ^1.5.3
+      solid-start: ^0.2.1
+    dependencies:
+      '@tanstack/solid-query': 5.0.0-alpha.20_solid-js@1.7.3
+      '@trpc/client': 10.21.1_@trpc+server@10.21.1
+      '@trpc/server': 10.21.1
+      solid-js: 1.7.3
+      solid-start: 0.2.26_tt6ncazacchdnymhnblvm4nye4
+    dev: false
 
   /source-map-js/1.0.2:
     resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==}
@@ -4388,9 +4455,9 @@ packages:
       which-boxed-primitive: 1.0.2
     dev: true
 
-  /undici/5.22.0:
-    resolution: {integrity: sha512-fR9RXCc+6Dxav4P9VV/sp5w3eFiSdOjJYsbtWfd4s5L5C4ogyuVpdKIVHeW0vV1MloM65/f7W45nR9ZxwVdyiA==}
-    engines: {node: '>=14.0'}
+  /undici/5.20.0:
+    resolution: {integrity: sha512-J3j60dYzuo6Eevbawwp1sdg16k5Tf768bxYK4TUJRH7cBM4kFCbf3mOnM/0E3vQYXvpxITbbWmBafaDbxLDz3g==}
+    engines: {node: '>=12.18'}
     dependencies:
       busboy: 1.6.0
 
@@ -4633,3 +4700,7 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
     dev: true
+
+  /zod/3.21.4:
+    resolution: {integrity: sha512-m46AKbrzKVzOzs/DZgVnG5H55N1sv1M8qZU3A8RIKbs3mrACDNeIOeilDymVb2HdmP8uwshOCF4uJ8uM9rCqJw==}
+    dev: false

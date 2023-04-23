@@ -32,11 +32,17 @@
     "@auth/solid-start": "^0.1.1",
     "@solidjs/meta": "^0.28.2",
     "@solidjs/router": "^0.8.2",
+    "@tanstack/solid-query": "^5.0.0-alpha.16",
+    "@trpc/client": "^10.12.0",
+    "@trpc/server": "^10.12.0",
     "kysely": "^0.24.2",
     "pg": "^8.10.0",
     "solid-js": "^1.7.2",
     "solid-start": "^0.2.26",
-    "undici": "^5.15.1"
+    "solid-start-trpc": "^0.0.16",
+    "solid-trpc": "0.1.0-sssr.7",
+    "undici": "^5.15.1",
+    "zod": "^3.20.6"
   },
   "engines": {
     "node": ">=16.8"
