@@ -2,10 +2,5 @@ import solid from "solid-start/vite"
 import { defineConfig } from "vite"
 
 export default defineConfig({
-  plugins: [
-    solid({
-      ssr: true,
-      islands: true,
-    }),
-  ],
+  plugins: [solid({ ssr: true })],
 })
