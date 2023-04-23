@@ -1,6 +1,6 @@
-import { getSession } from "@auth/solid-start"
 import type { inferAsyncReturnType } from "@trpc/server"
 import type { createSolidAPIHandlerContext } from "solid-start-trpc"
+import { getSession } from "@solid-auth/base"
 import { authOptions } from "~/routes/api/auth/[...solidauth]"
 
 export const createContextInner = async (opts: createSolidAPIHandlerContext) => {
